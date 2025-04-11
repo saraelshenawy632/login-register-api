@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="/regig.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Login</h1>
+        </header>
+
+        <form id="loginForm" action="/login" method="POST">
+            <label>Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label>Password:</label>
+            <input type="password" id="password" name="password" required />
+
+            <button type="submit">Login</button>
+        </form>
+
+        <button id="registerButton">Go to Register</button>
+
+       
+        </form>
+
+       
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerButton = document.getElementById('registerButton');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            try {
+                const res = await fetch(loginForm.action, {
+                    method: loginForm.method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    Swal.fire('Success!', data.message || 'Login successful!', 'success')
+                    .then(() => {
+                        window.location.href = '/dashboard';
+                    });
+                } else {
+                    Swal.fire('Error!', data.message || 'Invalid credentials.', 'error');
+                }
+
+            } catch (error) {
+                Swal.fire('Error!', 'Network error during login.', 'error');
+            }
+        });
+
+        registerButton.addEventListener('click', () => {
+            window.location.href = '/register';
+        });
+    </script>
+</body>
+</html>

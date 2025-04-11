@@ -1,0 +1,48 @@
+/* public/regig.css */
+body {
+    font-family: Arial, sans-serif;
+   background-image: url(background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background:transparent;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    text-align: center;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+input[type="email"], input[type="password"] ,input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #017201;
+    color: white;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #49d349;
+}

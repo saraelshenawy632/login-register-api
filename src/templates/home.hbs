@@ -1,0 +1,35 @@
+{{#extend 'main'}}
+{{#content 'title'}}Home{{/content}}
+{{#content 'body'}}
+{{! filepath: c:\Users\Hp\Desktop\login and regig\src\templates\home.hbs }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="branding">
+                <h1>Welcome to Home Page</h1>
+            </div>
+        </header>
+        <form action="/login" method="POST">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+{{/content}}
+{{/extend}}

@@ -1,0 +1,26 @@
+# استثناء مجلد node_modules
+node_modules/
+
+# استثناء ملفات البيئة
+.env
+
+# استثناء ملفات السجلات
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# استثناء ملفات النظام
+.DS_Store
+Thumbs.db
+
+# استثناء الملفات المؤقتة
+*.log
+*.tmp
+
+# استثناء ملفات التكوين الخاصة بـ IDE
+.vscode/
+.idea/
+*.iml
+.env.local
+.env.development
+.env.production
