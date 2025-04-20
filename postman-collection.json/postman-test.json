@@ -1,0 +1,225 @@
+{
+  "info": {
+    "name": "Login and Registration API",
+    "description": "Complete API documentation for user management system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:3000/api/auth/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"123456\",\n  \"phoneNumber\": \"1234567890\",\n  \"address\": \"123 Main St\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "http://localhost:3000/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"123456\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Profile",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/user/profile"
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/user/profile",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John Updated\",\n  \"lastName\": \"Doe Updated\",\n  \"phoneNumber\": \"0987654321\",\n  \"address\": \"456 New St\",\n  \"email\": \"john.updated@example.com\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Messages",
+      "item": [
+        {
+          "name": "Get Messages",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/user/messages"
+          }
+        },
+        {
+          "name": "Send Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/user/messages",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receiverId\": \"user_id_here\",\n  \"content\": \"Hello!\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Message",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/user/messages/:messageId"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/admin/users"
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/admin/users/:userId"
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/admin/users",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"New\",\n  \"lastName\": \"User\",\n  \"email\": \"new.user@example.com\",\n  \"password\": \"123456\",\n  \"phoneNumber\": \"1234567890\",\n  \"address\": \"789 Admin St\",\n  \"role\": \"user\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/admin/users/:userId",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Updated\",\n  \"lastName\": \"User\",\n  \"email\": \"updated.user@example.com\",\n  \"phoneNumber\": \"0987654321\",\n  \"address\": \"321 Update St\",\n  \"role\": \"user\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "connect.sid={{sessionId}}"
+              }
+            ],
+            "url": "http://localhost:3000/api/admin/users/:userId"
+          }
+        }
+      ]
+    }
+  ]
+}
